@@ -1,7 +1,9 @@
 let display = document.getElementById("display");
 
 let buttons = Array.from(document.getElementsByClassName("button"));
-function sin(a) { return Math.sin(a) };
+function sin(a) { 
+  return Math.sin(a) 
+};
 function asin(a) { return Math.asin(a) };
 function cos(a) { return Math.cos(a) };
 function acos(a) { return Math.acos(a) };
