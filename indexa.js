@@ -17,17 +17,24 @@ function tanh(a) { return Math.tanh(a) };
 function is_digit(a) {
   return parseInt(a) >= 0 && parseInt(a) <= 9;
 };
+var last = "";
 function add(a) {
   if (is_digit(a) == 1) {
     display.innerText += "*";
+    last = "*";
   }
   else if (a == ")") {
     display.innerText += "*";
   }
 }
+function add_star(a) {
+  if (a == ")") {
+    display.innerText += "*";
+  }
+}
 buttons.map((button) => {
   button.addEventListener("click", (e) => {
-    var last = "";
+    last = "";
     if (display.innerText != "") {
       last = display.innerText[display.innerText.length - 1];
     }
@@ -42,6 +49,11 @@ buttons.map((button) => {
         display.innerText += e.target.innerText + "(";
       }
     } else {
+      if (is_digit(e.target.innerText) && last == ")") {
+        display.innerText += "*";
+      }
+
+
       switch (e.target.innerText) {
         case "C":
           display.innerText = "";
@@ -67,6 +79,7 @@ buttons.map((button) => {
         default:
           display.innerText += e.target.innerText;
       }
+
     }
   });
 });
