@@ -21,6 +21,9 @@ function add(a) {
   if (is_digit(a) == 1) {
     display.innerText += "*";
   }
+  else if (a == ")") {
+    display.innerText += "*";
+  }
 }
 buttons.map((button) => {
   button.addEventListener("click", (e) => {
